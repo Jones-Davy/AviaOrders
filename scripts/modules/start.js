@@ -17,10 +17,32 @@ const createMain = () => {
     return main
 }
 
-const createFirstForm = () => {
+const createFirstForm = (data) => {
     const form = createElement('form', {
         className: 'field',
     })
+
+    const labelTour = createElement('label', {
+        className: 'field__label',
+        for: 'tour',
+        textContent: 'Выбрать тур'
+    })
+
+    const select = createElement('select', {
+        className: 'field__select',
+        id: 'tour',
+        name: 'tour',
+    })
+
+    const options = data.map(item => 
+        createElement('option', {
+            value: item.id,
+            textContent: item.tour,
+        })
+    )
+
+    select.append(...options)
+
     const label = createElement('label', {
         className: 'field__label',
         textContent: 'Укажите количество человек (max: 6)',
@@ -42,21 +64,21 @@ const createFirstForm = () => {
         textContent: 'Подтвердить',
     })
 
-    form.append(label, input, button)
+    form.append(labelTour, select, label, input, button)
 
     return form
 }
 
-const start = (app, title) => {
+const start = (app, title, data) => {
     const h1 = createTitle(title)
     const main = createMain()
-    const firstForm = createFirstForm()
+    const firstForm = createFirstForm(data)
 
     main.append(firstForm)
     app.append(h1, main)
 
     return {
-        main, firstForm
+        main, firstForm, h1
     }
 }
 
