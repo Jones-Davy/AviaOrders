@@ -15,8 +15,10 @@ const createCockpit = (titleText) => {
 
     const button = createElement('button', {
         className: 'cockpit-confirm',
+        name: 'send',
         type: 'submit',
         textContent: 'Подтвердить',
+        disabled: true,
     })
 
     cockpit.append(title, button)
@@ -75,9 +77,8 @@ const createBlockSeat = (n, count, bookingSeat) => {
 
 }
 
-const createAirplane = (title, tourData) => {
+const createAirplane = (bookingSeat, title, tourData) => {
     const scheme = tourData.scheme
-    const bookingSeat = getStorage(tourData.id).map (item => item.seat)
 
     const choisesSeat = createElement('form', {
         className: 'choises-seat',
@@ -112,11 +113,13 @@ const createAirplane = (title, tourData) => {
     return choisesSeat
 }
 
-const checkSeat = (form, data, id) => {
-    const bookingSeat = getStorage(id).map(item => item.seat)
+const checkSeat =  (bookingSeat, form, data, id) => {
+
     form.addEventListener('change', () => {
         const formData = new FormData(form)
         const checked = [...formData].map(([, value]) => value)
+
+        form.send.disabled = checked.length !== data.length
 
         if (checked.length === data.length) {
             [...form].forEach(item => {
@@ -126,7 +129,7 @@ const checkSeat = (form, data, id) => {
             })
         } else {
             [...form].forEach(item => {
-                if(!bookingSeat.includes(item.value)) {
+                if(!bookingSeat.includes(item.value) && item.name === 'seat') {
                     item.disabled = false
                 }
         })
@@ -154,12 +157,18 @@ const checkSeat = (form, data, id) => {
 
 }
 
-const airplane = (main, data, tourData) => {
+const airplane = async (main, data, tourData) => {
     const title = `Выберите #${declOfNum(data.length, ['место', 'места', 'мест'])}`
 
-    const choiseForm = createAirplane(title, tourData)
+    const dataResponse = await getStorage(tourData.id)
 
-    checkSeat(choiseForm, data, tourData.id)
+    const bookingSeat = dataResponse.map(item => item.seat)
+
+
+    const choiseForm = createAirplane(bookingSeat, title, tourData)
+
+
+    checkSeat(bookingSeat, choiseForm, data, tourData.id)
 
     main.append(choiseForm)
 }
