@@ -3,7 +3,7 @@
    
   <br/>
 
-  <div>
+  <div align="center">
      <img src="https://media.giphy.com/media/ZlRmaLNJgoRIA/giphy.gif" width="250px" height="200px"/>
    <h3><a href="https://jones-davy.github.io/AviaOrders/">Сайт проекта  AviaOrders</a></h3>
   </div>
