@@ -12,15 +12,21 @@
   Веб приложение для бронирования места в круизном самолете с возможностью выбора тура и заполнения данных о пассажирах. 
   
   <div  align="center">
+  <h2>Форма регистрации пассажиров</h2>
   <img src="https://github.com/Jones-Davy/AviaOrders/blob/main/img/form-screen.jpg"/>
-  Форма регистрации пассажиров
 </div>
 
+<br/>
+
+
  <div align="center">
+  <h2>Выбор места в самолёте</h2>
   <img src="https://github.com/Jones-Davy/AviaOrders/blob/main/img/mainscreen-1.jpg"/>
   <img src="https://github.com/Jones-Davy/AviaOrders/blob/main/img/mainscreen-2.jpg"/>
-   Меню выбора места в самолёте
 </div>
+
+<br/>
+
   
   ## Запуск проекта ⏯
 
