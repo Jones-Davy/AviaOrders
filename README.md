@@ -1,13 +1,13 @@
 
-   #AviaOrders
+   ##AviaOrders
    
   <br/>
 
   <div>
-     <img src="https://media.giphy.com/media/ZlRmaLNJgoRIA/giphy.gif" width="90px" height="100px"/>
+     <img src="https://media.giphy.com/media/ZlRmaLNJgoRIA/giphy.gif" width="250px" height="100px"/>
    <h3><a href="https://jones-davy.github.io/AviaOrders/">Сайт проекта  AviaOrders</a></h3>
   </div>
-<a href="https://jones-davy.github.io/AviaOrders/"/>
+<a href="https://jones-davy.github.io/AviaOrders/"> </a>
   
   Веб приложение для бронирования места в круизном самолете с возможностью выбора тура и заполнения данных о пассажирах. 
   
